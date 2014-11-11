@@ -186,16 +186,24 @@ function displayEducation() {
   
   $("#education").append(HTMLonlineClasses);
 
-  for (course in education.onlineCourses) {
-    $("#education").append(HTMLschoolStart);
-
-    var formattedTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[course].title);
-    var formattedSchool = HTMLonlineSchool.replace("%data%",education.onlineCourses[course].school);
-    var formattedOnlineHeader  = formattedTitle + formattedSchool;
+  for(var course in education.onlineCourses) {
+    // appended online courses to the new div onlineClassesStart
+    $("#education").append(HTMLonlineClassesStart);
+  
+  // updated var naming convention to include "Online" 
+    var formattedOnlineTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[course].title);
+    var formattedOnlineSchool= HTMLonlineSchool.replace("%data%", education.onlineCourses[course].school);
+    var formattedOnlineHeader = formattedOnlineTitle + formattedOnlineSchool;
     $(".education-entry:last").append(formattedOnlineHeader);
-    
+  
     var formattedDates = HTMLonlineDates.replace("%data%",education.onlineCourses[course].dates);
     $(".education-entry:last").append(formattedDates);
+
+    // TODO: style better
+    var formattedURL = HTMLonlineURL.replace("%data%",education.onlineCourses[course].url);
+    $(".education-entry:last").append(formattedURL);
+  }
+}
 
     // TODO: style better
     var formattedURL = HTMLonlineURL.replace("%data%",education.onlineCourses[course].url);
