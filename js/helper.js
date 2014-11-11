@@ -34,7 +34,11 @@ var HTMLschoolDates = "<div class='date-text'>%data%</div>";
 var HTMLschoolLocation = "<div class='location-text'>%data%</div>";
 var HTMLschoolMajor = "<em><br>Major: %data%</em>"
 
-var HTMLonlineClasses = "<h3>Online Classes</h3>";
+// added this to give online classes its own div; otherwise it uses the education div as its left alignment (doubles left padding)
+var HTMLonlineClassesStart = "<div class='education-entry'></div>";
+
+// added a line break before online classes header to make it easier to read  
+var HTMLonlineClasses = "<br><h3>Online Classes</h3>";
 var HTMLonlineTitle = "<a href='#'>%data%";
 var HTMLonlineSchool = " - %data%</a>";
 var HTMLonlineDates = "<div class='date-text'>%data%</div>";
